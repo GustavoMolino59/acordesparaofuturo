@@ -7,7 +7,8 @@ HTML, CSS e JavaScript puros: sem framework, sem build, sem backend.
 index.html            página única (todo o conteúdo)
 css/styles.css        estilos (tokens de cor/tipografia no topo)
 js/main.js            menu, copiar Pix, contagem regressiva, galeria, compartilhar, barra de arrecadação
-assets/img/           fotos (WebP), QR Code Pix (SVG), imagem de compartilhamento (compartilhar.jpg)
+assets/img/           fotos (WebP), QR Code Pix (SVG), imagem de compartilhamento (compartilhar.jpg), notas fiscais
+assets/docs/          PDFs das notas fiscais (sem CPF e endereço do comprador)
 404.html              página de erro
 CNAME                 domínio personalizado (GitHub Pages)
 robots.txt, sitemap.xml
@@ -126,7 +127,18 @@ Com `data-arrecadado` vazio, a barra fica escondida.
 ### Horário da entrega
 
 Quando o horário for confirmado, troque o texto "Horário a confirmar" no `index.html`.
-Se quiser, inclua o horário também no `startDate` do bloco `application/ld+json`, no formato `2026-10-16T14:00-03:00`.
+Se quiser, inclua o horário também no `startDate` do bloco `application/ld+json`, no formato `2026-10-17T14:00-03:00`.
+
+### Prestação de contas
+
+Cada nota fiscal é um `<li>` dentro de `<ul class="receipts">`, na seção `#prestacao-de-contas` do `index.html`.
+Para incluir uma nota nova:
+
+1. Salve a imagem da nota em `assets/img/` (WebP) e, se houver, o PDF em `assets/docs/`.
+   Antes de publicar, apague do arquivo o CPF completo e o endereço de quem comprou.
+2. Copie um `<li>` existente e troque loja, número, data, CNPJ, itens, total, chave de acesso
+   (no texto e no `data-copy`, sem espaços) e os caminhos dos arquivos.
+3. Atualize o total, a quantidade de notas e a data em `<dl class="accounts-summary">`.
 
 ### Prévia no WhatsApp
 
